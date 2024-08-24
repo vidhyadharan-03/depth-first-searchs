@@ -8,13 +8,14 @@ def dfs(graph,start,visited,path):
     path.append(start)
     visited[start]=True
     for neighbour in graph[start]:
-       #type ur code here
+         if not visited[neighbour]:
+            path = dfs(graph, neighbour, visited, path)
     return path
 graph=defaultdict(list)
 n,e=map(int,input().split())
 for i in range(e):
-   #type ur code here
-    graph[v].append(u)
+    u, v = map(str, input().split())
+    graph[u].append(v)
 #print(graph)
 start='A'
 visited=defaultdict(bool)
